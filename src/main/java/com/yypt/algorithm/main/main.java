@@ -9,12 +9,12 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNext()) {
-            int n = scanner.nextInt();
-            for (int i = 0; i < n; i++) {
-                dataChecker(30);
-            }
-        }
+//        while (scanner.hasNext()) {
+//            int n = scanner.nextInt();
+//            for (int i = 0; i < n; i++) {
+        dataChecker(20, 10);
+//            }
+//        }
     }
 
     static void dataChecker(int n) {
@@ -24,6 +24,24 @@ public class main {
         Arrays.sort(originArr);
         System.out.println("官方排序:" + Arrays.toString(originArr));
         SelectionSort.sort(copyArr);
+        System.out.println("我的排序:" + Arrays.toString(copyArr));
+        for (int i = 0; i < n; i++) {
+            if (originArr[i] != copyArr[i]) {
+                System.out.println("错误！");
+                return;
+            }
+
+        }
+        System.out.println("正确");
+    }
+
+    static void dataChecker(int n, int m) {
+        int[] originArr = SortUtils.generateRandomArray(n, m);
+        int[] copyArr = Arrays.copyOf(originArr, n);
+        System.out.println("原始数据:" + Arrays.toString(originArr));
+        Arrays.sort(originArr);
+        System.out.println("官方排序:" + Arrays.toString(originArr));
+        copyArr = CountSort.sort(copyArr);
         System.out.println("我的排序:" + Arrays.toString(copyArr));
         for (int i = 0; i < n; i++) {
             if (originArr[i] != copyArr[i]) {

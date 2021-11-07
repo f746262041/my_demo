@@ -27,4 +27,20 @@ public class SortUtils {
         }
         return ints;
     }
+
+    /**
+     * 生成范围小，数据量大的数据
+     *
+     * @param n
+     * @param m
+     * @return
+     */
+    public static int[] generateRandomArray(int n, int m) {
+        int[] ints = new int[n];
+        Random random = new Random();
+        for (int i = 0; i < n; i++) {
+            ints[i] = random.nextInt(m);
+        }
+        return ints;
+    }
 }
